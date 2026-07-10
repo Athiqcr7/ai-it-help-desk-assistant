@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI IT Help Desk Assistant</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="brand-dot"></span>
+      <div>
+        <div class="brand-title">IT Service Desk</div>
+        <div class="brand-subtitle">AI Support Assistant</div>
+      </div>
+    </div>
+
+    <button id="newChatBtn" class="new-chat-btn">
+      <span>+</span> New ticket
+    </button>
+
+    <div class="sidebar-section-label">Categories</div>
+    <div class="category-list" id="categoryList">
+      <!-- Populated by script.js -->
+    </div>
+
+    <div class="sidebar-footer">
+      <button id="clearChatBtn" class="clear-chat-btn">Clear chat</button>
+      <button id="darkModeBtn" class="dark-mode-btn" title="Toggle theme">🌓</button>
+    </div>
+  </aside>
+
+  <!-- ============ MAIN CHAT AREA ============ -->
+  <main class="chat-area">
+
+    <header class="chat-header">
+      <div class="chat-header-title">
+        <div class="status-dot"></div>
+        <div>
+          <div class="chat-header-name">AI Help Desk Assistant</div>
+          <div class="chat-header-status">Online &middot; Level-1 Support</div>
+        </div>
+      </div>
+      <div class="chat-header-meta">Ticket #<span id="ticketId">HD-1042</span></div>
+    </header>
+
+    <section class="chat-window" id="chatWindow">
+      <!-- Messages injected by script.js -->
+    </section>
+
+    <div class="typing-indicator" id="typingIndicator" style="display:none;">
+      <span></span><span></span><span></span>
+      <span class="typing-label">Assistant is typing…</span>
+    </div>
+
+    <form class="chat-input-bar" id="chatForm">
+      <textarea
+        id="chatInput"
+        placeholder="Describe your IT issue... e.g. 'My laptop won't connect to Wi-Fi'"
+        rows="1"
+        required
+      ></textarea>
+      <button type="submit" id="sendBtn" class="send-btn" aria-label="Send message">
+        Send
+      </button>
+    </form>
+
+  </main>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
